@@ -1,6 +1,6 @@
 
 % path to the MATLAB API files
-% addpath('../arrus');
+addpath('../arrus');
 
 txFrequency = 19.8e6;
 samplingFrequency = 65e6;
@@ -88,7 +88,7 @@ us.upload(seqPWI, rec);
 
 %%
 figure
-    imagesc(img)
+    imagesc(squeeze(img));
     colormap(gray)
 %     set(gca, 'clim', [0,100])
 

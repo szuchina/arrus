@@ -279,9 +279,11 @@ def create_pwi_sequence(context):
     if c is None:
         c = context.medium.speed_of_sound
 
-    tgc_curve = arrus.kernels.tgc.compute_linear_tgc(
-        context,
-        arrus.ops.tgc.LinearTgc(tgc_start, tgc_slope))
+    tgc_curve = []
+    if tgc_start is not None and tgc_slope is not None:
+        tgc_curve = arrus.kernels.tgc.compute_linear_tgc(
+            context,
+            arrus.ops.tgc.LinearTgc(tgc_start, tgc_slope))
 
     tx_aperture = np.ones(n_elem, dtype=bool)
     rx_aperture = np.ones(n_elem, dtype=bool)
